@@ -35,14 +35,14 @@ namespace Sort_Name_Application.Controllers
             var memStream = new MemoryStream();
             var streamWriter = new StreamWriter(memStream);
             foreach (DataRow dr in sortlist)
-            {
+            { 
                 streamWriter.WriteLine(dr["FullName"]);
             }
             streamWriter.Flush();                                 
             memStream.Seek(0, SeekOrigin.Begin);
             byte[] bytesInStream = memStream.ToArray(); // simpler way of converting to array
             memStream.Close();
-            return File(bytesInStream, "text/plain", "foo.txt");
+            return File(bytesInStream, "text/plain", "SortNameByLastName.txt");
         }
         public IActionResult Privacy()
         {
