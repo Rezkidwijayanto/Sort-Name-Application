@@ -35,7 +35,7 @@ namespace Sort_Name_Application.Controllers
             var memStream = new MemoryStream();
             var streamWriter = new StreamWriter(memStream);
             foreach (DataRow dr in sortlist)
-            {
+            { 
                 streamWriter.WriteLine(dr["FullName"]);
             }
             streamWriter.Flush();                                 
