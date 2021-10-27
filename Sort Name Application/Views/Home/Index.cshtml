@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model System.Data.DataTable
+@using System.Data
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>This application for sorting name by last names.</p>
+
+    <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index">
+        <span>Select File:</span>
+        <input type="file" name="postedFiles" multiple />
+        <input type="submit" value="Upload" />
+        <br />
+    </form>
+    </br></br>
+    @if (ViewBag.datasource != null)
+    {
+        <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Download">
+            <center>
+                <table cellpadding="1" cellspacing="1" border="1" id="sortlist">
+                    <thead>
+                        <tr style="background-color:aliceblue">
+                            <th>Full Name</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var dr in ViewBag.datasource.Rows)
+                        {
+
+                            <tr>
+                                <td>
+                                    @dr["FullName"]
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </center>
+            <br /><br />
+            <input type="submit" value="Download File" />
+        </form>
+    }
+
+</div>
