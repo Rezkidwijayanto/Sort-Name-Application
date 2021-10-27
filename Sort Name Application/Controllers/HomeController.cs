@@ -42,7 +42,7 @@ namespace Sort_Name_Application.Controllers
             memStream.Seek(0, SeekOrigin.Begin);
             byte[] bytesInStream = memStream.ToArray(); // simpler way of converting to array
             memStream.Close();
-            return File(bytesInStream, "text/plain", "foo.txt");
+            return File(bytesInStream, "text/plain", "SortNameByLastName.txt");
         }
         public IActionResult Privacy()
         {
